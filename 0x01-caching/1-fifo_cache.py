@@ -3,7 +3,7 @@
 FIFO caching
 """
 
-BaseCaching = __import__("1-fifo_cache").FIFOCache
+BaseCaching = __import__("base_caching").BaseCaching
 
 
 class FIFOCache(BaseCaching):
@@ -27,11 +27,9 @@ class FIFOCache(BaseCaching):
             key(str): to store the item under.
             item(obj): item to store
         """
-        if key is None or item is None:
-            return
-        self.cache_data[key] = item
-        self.cache_order.append(key)
-
+        super().__init__()
+        self.cache_order = []
+        self.cache_data = {}
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
             first_key = self.cache_order.pop(0)
             del self.cache_data[first_key]
