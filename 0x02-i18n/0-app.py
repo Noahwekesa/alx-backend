@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+"""
+Single route to display hello world
+"""
+
 from flask import Flask
 from flask import render_template
 
