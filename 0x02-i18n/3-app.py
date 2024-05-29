@@ -18,6 +18,6 @@ def get_locale():
 
 
 @app.route("/")
-def index():
+def index() -> str:
     """Index page"""
     return render_template("3-index.html")
