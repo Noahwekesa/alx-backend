@@ -21,7 +21,6 @@ app.url_map.strict_slashes = False
 babel = Babel(app)
 
 
-@babel.localeselector
 def get_locale():
     """Get locale"""
     return request.accept_languages.best_match(app.config["LANGUAGES"])
@@ -31,7 +30,3 @@ def get_locale():
 def index() -> str:
     """Returns a template"""
     return render_template("1-index.html")
-
-
-if __name__ == "__main__":
-    app.run()
