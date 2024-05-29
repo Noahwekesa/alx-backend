@@ -5,17 +5,7 @@ Force locale with URL parameter
 
 from flask import Flask, render_template, request
 from flask_babel import Babel
-
-
-class Config:
-    """
-    Config class for Babel
-    """
-
-    DEBUG = True
-    LANGUAGES = ["en", "fr"]
-    BABEL_DEFAULT_LOCALE = "en"
-    BABEL_DEFAULT_TIMEZONE = "UTC"
+from config import Config
 
 
 app = Flask(__name__)
@@ -25,7 +15,7 @@ babel = Babel(app)
 
 
 @babel.localeselector
-def get_locale():
+def get_locale() -> str:
     """
     Get locale from request
     """
@@ -36,7 +26,7 @@ def get_locale():
 
 
 @app.route("/")
-def index():
+def index() -> str:
     """
     Return string
     """
