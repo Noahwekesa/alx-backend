@@ -14,7 +14,6 @@ app.url_map.strict_slashes = False
 babel = Babel(app)
 
 
-@babel.localeselector
 def get_locale() -> str:
     """
     Get locale from request
