@@ -61,3 +61,7 @@ def index() -> str:
         html: homepage
     """
     return render_template("6-index.html")
+
+
+if __name__ == "__main__":
+    app.run()
